@@ -1,6 +1,6 @@
 # PyEDGAR
 
-This package enables efficient interaction with data from the U.S. [Securities and Exchange Commission's (SEC)](https://www.sec.gov) [Electronic Data Gathering, Analysis and Retrieval System (EDGAR)](https://www.sec.gov/edgar.shtml), enabled by the [International Standard for Digital Business Reporting (XBRL)](https://www.xbrl.org/the-standard/what/).
+This package enables efficient interaction with data from the U.S. [Securities and Exchange Commission's (SEC)](https://www.sec.gov) [Electronic Data Gathering, Analysis and Retrieval System (EDGAR)](https://www.sec.gov/edgar.shtml), enabled by the [eXtensible Business Reporting Language (XBRL)](https://www.xbrl.org/the-standard/what/).
 
 
 ## Contact
