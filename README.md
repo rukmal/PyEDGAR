@@ -2,6 +2,11 @@
 
 This package enables efficient interaction with data from the U.S. [Securities and Exchange Commission's (SEC)](https://www.sec.gov) [Electronic Data Gathering, Analysis and Retrieval System (EDGAR)](https://www.sec.gov/edgar.shtml), enabled by the [eXtensible Business Reporting Language (XBRL)](https://www.xbrl.org/the-standard/what/).
 
+## Background Material
+
+- [The XBRL Standard](https://specifications.xbrl.org)
+- [FinRegOnt Tutorial](http://finregont.com/tutorial/)
+    - [FinRegOnt Tutorial Chapter 1](http://finregont.com/wp-content/uploads/Documents/Financial_Regulation_Ontology_tutorial_Chapter1_into.pdf)
 
 ## Contact
 
