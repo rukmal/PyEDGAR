@@ -6,7 +6,6 @@ This package enables efficient interaction with data from the U.S. [Securities a
 
 - [The XBRL Standard](https://specifications.xbrl.org)
 - [FinRegOnt Tutorial](http://finregont.com/tutorial/)
-    - [FinRegOnt Tutorial Chapter 1](http://finregont.com/wp-content/uploads/Documents/Financial_Regulation_Ontology_tutorial_Chapter1_into.pdf)
 
 ## Contact
 
