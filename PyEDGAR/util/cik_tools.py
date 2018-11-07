@@ -1,6 +1,6 @@
+from requests import exceptions, get
 import logging
 import re
-import requests
 
 
 def getCIK(ticker: str) -> str:
@@ -11,7 +11,7 @@ def getCIK(ticker: str) -> str:
         ticker {str} -- Ticker to be matched.
     
     Raises:
-        requests.exceptions.RequestException -- Thrown if the request fails.
+        exceptions.RequestException -- Thrown if the request fails.
         LookupError -- Thrown if a CIK match is not found, or if there is more
                        than one CIK corresponding to the candidate ticker.
     
@@ -32,13 +32,13 @@ def getCIK(ticker: str) -> str:
     }
 
     # Making request
-    r = requests.get(url=base_url, params=params)
+    r = get(url=base_url, params=params)
 
     # Handling failed request
     if not r.ok:
         logging.warn('Request failed: CIK lookup for ticker {0} with error {1}'
             .format(ticker, r.status_code))
-        raise requests.exceptions.RequestException('Request failed')
+        raise exceptions.RequestException('Request failed')
 
     # RegEx for extracting ticker from response
     # Note: Solution adapted from:

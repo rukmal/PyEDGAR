@@ -2,6 +2,7 @@ from context import PyEDGAR
 
 import unittest
 
+
 class TestCIKTools(unittest.TestCase):
     """Test the `cik_tools` in the `util` module.
     """
