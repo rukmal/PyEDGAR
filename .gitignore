@@ -3,6 +3,7 @@
 tmp/
 tmp_*
 tmux.conf
+Notes.md
 
 # Application folders
 .idea/
