@@ -1,1 +1,1 @@
-from .get import getAllFilings
+from .filings import getAllFilings
