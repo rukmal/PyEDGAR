@@ -2,6 +2,8 @@
 
 This package enables efficient interaction with data from the U.S. [Securities and Exchange Commission's (SEC)](https://www.sec.gov) [Electronic Data Gathering, Analysis and Retrieval System (EDGAR)](https://www.sec.gov/edgar.shtml), enabled by the [eXtensible Business Reporting Language (XBRL)](https://www.xbrl.org/the-standard/what/).
 
+It is currently a work-in-progress, with the goal of being a full API for interacting with the SEC EDGAR database.
+
 ## Background Material
 
 - [The XBRL Standard](https://specifications.xbrl.org)
