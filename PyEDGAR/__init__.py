@@ -1,2 +1,2 @@
-from . import edgar
+from . import filings
 from . import util
