@@ -2,6 +2,18 @@ from requests import exceptions, get
 import logging
 
 def __downloadInfoPage(cik: str) -> str:
+    """Function to download listings page from EDGAR, given a target CIK.
+    
+    Arguments:
+        cik {str} -- CIK of target company.
+    
+    Raises:
+        exceptions.RequestException -- Raised if page load fails.
+    
+    Returns:
+        str -- Page HTML.
+    """
+
     base_url = 'https://sec.gov/cgi-bin/browse-edgar'
 
     # Building request parameters
