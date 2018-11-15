@@ -27,6 +27,7 @@ dependencies:
   - xz=5.2.4
   - zlib=1.2.11
   - pip:
+    - beautifulsoup4==4.6.3
     - chardet==3.0.4
     - idna==2.7
     - isodate==0.6.0
