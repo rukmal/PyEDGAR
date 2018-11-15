@@ -29,7 +29,7 @@ class TestEdgarCompany(unittest.TestCase):
 
 
     def test_companyPhone(self):
-        """Test the company module address retrieval from `getInfo` in the
+        """Test the phone (in address) retrieval from `getInfo` in the
         `company` module.
 
         Test case uses ticker 'TSLA', with the corresponding CIK
@@ -56,9 +56,10 @@ class TestEdgarCompany(unittest.TestCase):
         # Check numbers match
         self.assertEqual(candidate_phone, expected_phone)
 
+
     def test_companyName(self):
-        """Test the company module company name retrieval system from `getInfo`
-        in the `company` module.
+        """Test company name retrieval system from `getInfo` in the
+        `company` module.
 
         Test case uses ticker 'GE', with the corresponding CIK '0000040545'.
         Verifies that the company name is 'GENERAL ELECTRIC CO'.
@@ -77,3 +78,32 @@ class TestEdgarCompany(unittest.TestCase):
 
         # Check for equality
         self.assertEqual(candidate_name, expected_name)
+
+
+    def test_formerCompanyName(self):
+        """Test the former name retrieval from `getInfo` in the
+        `company` module.
+
+        Test case uses ticker 'XOM', with the corresponding CIK '0000034088'.
+        Verifies that the former company name is 'EXXON CORP' with filings
+        through date of '1991-11-30'.
+        """
+
+        # Test variables
+        test_cik = '0000034088'
+
+        # Getting company info
+        info = PyEDGAR.company.getInfo(cik=test_cik)
+
+        # Expected result
+        expected_former = {'former_name': 'EXXON CORP',
+                           'filings_through': '1999-11-30'}
+        # Candidate result
+        candidate_former = info['former_names'][0]
+
+        # Building equivalence check
+        check_equal = [candidate_former[i] == expected_former[i]
+                       for i in expected_former.keys()]
+
+        # Check for equality
+        self.assertEqual(check_equal, [True, True])
