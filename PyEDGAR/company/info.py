@@ -21,7 +21,10 @@ def getInfo(cik: str, includeRaw: bool=True) -> dict:
 
     page_html = __downloadInfoPage(cik=cik)
 
+    # Parsing page HTML
     company_parsed = __parseHTML(page_html=page_html)
+    # Reattaching CIK
+    company_parsed['cik'] = cik
 
     # Raw page HTML
     if includeRaw: company_parsed['_raw'] = [page_html]
