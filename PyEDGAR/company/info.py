@@ -6,11 +6,14 @@ from requests import exceptions, get
 import logging
 
 
-def getInfo(cik: str) -> dict:
+def getInfo(cik: str, includeRaw: bool=True) -> dict:
     """Function to get company information, given a company CIK.
     
     Arguments:
         cik {str} -- CIK of the target company.
+    
+    Keyword Arguments:
+        includeRaw {bool} -- Flag to include raw HTML (default: {True}).
     
     Returns:
         dict -- Dictionary of company infomation. See user guide for more info.
@@ -20,6 +23,7 @@ def getInfo(cik: str) -> dict:
 
     company_parsed = __parseHTML(page_html=page_html)
 
-    company_parsed['_raw'] = [page_html]
+    # Raw page HTML
+    if includeRaw: company_parsed['_raw'] = [page_html]
 
     return company_parsed
