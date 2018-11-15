@@ -28,7 +28,8 @@ def __getAddresses(parsed: BeautifulSoup) -> list:
     address_divs = parsed.find_all('div', class_='mailer')
 
     # Building RegEx for phone number
-    phone_number_regex = re.compile(r'(\(\d{3}\) \d{3}-\d{4})')
+    phone_number_regex = re.compile(
+        r'(\(\d{3}\) \d{3}-\d{4}|\d{3}-\d{3}-\d{4})')
 
     # List for final addresses
     addresses = list()
@@ -54,7 +55,9 @@ def __getAddresses(parsed: BeautifulSoup) -> list:
             # Check if line has phone number
             phone_matches = phone_number_regex.findall(address_item)
             if len(phone_matches) == 1:
-                address_parsed['phone'] = phone_matches[0]
+                # Stripping non-digit characters from phone number
+                phone_number = re.sub('[^0-9]', '', phone_matches[0])
+                address_parsed['phone'] = phone_number
                 continue
             
             # If no number, add to address line
