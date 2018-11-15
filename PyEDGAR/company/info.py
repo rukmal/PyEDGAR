@@ -19,6 +19,9 @@ def getInfo(cik: str, includeRaw: bool=False) -> dict:
         dict -- Dictionary of company infomation. See user guide for more info.
     """
 
+    logging.info('Getting company info for CIK {0}'.format(cik))
+
+    # Getting page HTML
     page_html = __downloadInfoPage(cik=cik)
 
     # Parsing page HTML
