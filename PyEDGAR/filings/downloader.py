@@ -2,7 +2,7 @@ from requests import exceptions, get
 import logging
 
 
-def edgarDownload(cik: str) -> list:
+def __downloadFilings(cik: str) -> list:
     """Function to download the XML text of listings pages for a given CIK
     from the EDGAR database.
     
