@@ -22,10 +22,14 @@ def __parseHTML(page_html: str) -> dict:
     # Getting company addresses
     company_info['addresses'] = __getAddresses(parsed=parsed)
 
+    # Getting company name
+    company_info['name'] = __getCompanyName(parsed=parsed)
+
     return company_info
 
 def __getAddresses(parsed: BeautifulSoup) -> list:
     """Function to extract company addresses from the parsed HTML EDGAR page.
+    Searches for address information in divs with class name 'mailer'.
     
     Arguments:
         parsed {BeautifulSoup} -- Parsed HTML from company EDGAR filing.
@@ -79,3 +83,24 @@ def __getAddresses(parsed: BeautifulSoup) -> list:
         addresses += [address_parsed]
 
     return addresses
+
+
+def __getCompanyName(parsed: BeautifulSoup) -> str:
+    """Function to extract the company name from the parsed HTML EDGAR page.
+    Searches for company name in a span with class 'companyName'.
+    
+    Arguments:
+        parsed {BeautifulSoup} -- Parsed HTML from company EDGAR filing.
+    
+    Returns:
+        str -- Name of company.
+    """
+
+    # Company name container
+    name_container = parsed.find('span', class_='companyName')
+
+    # Extracting raw text elements
+    name_raw_text = [s for s in name_container.children if isinstance(s, str)]
+
+    # Getting name (first raw text instance)
+    return name_raw_text[0].strip()
