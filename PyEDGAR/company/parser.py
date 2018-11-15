@@ -43,8 +43,12 @@ def __getAddresses(parsed: BeautifulSoup) -> list:
     address_divs = parsed.find_all('div', class_='mailer')
 
     # Building RegEx for phone number
+    # The following RegEx extracts phone numbers in the following formats:
+    #   1. (###) ###-####
+    #   2. ###-###-####
+    #   3. ##########
     phone_number_regex = re.compile(
-        r'(\(\d{3}\) \d{3}-\d{4}|\d{3}-\d{3}-\d{4})')
+        r'(\(\d{3}\) \d{3}-\d{4}|\d{3}-\d{3}-\d{4}|\d{10})')
 
     # List for final addresses
     addresses = list()
