@@ -3,7 +3,16 @@ import logging
 import re
 
 
-def __parseHTML(page_html: str) -> dict():
+def __parseHTML(page_html: str) -> dict:
+    """Function to parse EDGAR page HTML, returning a dict of company info.
+    
+    Arguments:
+        page_html {str} -- Raw HTML of page.
+    
+    Returns:
+        dict -- Structured dictionary of company attributes.
+    """
+
     # Dict for final output
     company_info = dict()
 
