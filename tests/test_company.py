@@ -55,3 +55,25 @@ class TestEdgarCompany(unittest.TestCase):
         
         # Check numbers match
         self.assertEqual(candidate_phone, expected_phone)
+
+    def test_companyName(self):
+        """Test the company module company name retrieval system from `getInfo`
+        in the `company` module.
+
+        Test case uses ticker 'GE', with the corresponding CIK '0000040545'.
+        Verifies that the company name is 'GENERAL ELECTRIC CO'.
+        """
+
+        # Test variables
+        test_cik = '0000040545'
+
+        # Getting company info
+        info = PyEDGAR.company.getInfo(cik=test_cik)
+
+        # Expected result
+        expected_name = 'GENERAL ELECTRIC CO'
+        # Candidate result
+        candidate_name = info['name']
+
+        # Check for equality
+        self.assertEqual(candidate_name, expected_name)
