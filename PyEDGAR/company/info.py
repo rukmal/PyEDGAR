@@ -6,14 +6,14 @@ from requests import exceptions, get
 import logging
 
 
-def getInfo(cik: str, includeRaw: bool=True) -> dict:
+def getInfo(cik: str, includeRaw: bool=False) -> dict:
     """Function to get company information, given a company CIK.
     
     Arguments:
         cik {str} -- CIK of the target company.
     
     Keyword Arguments:
-        includeRaw {bool} -- Flag to include raw HTML (default: {True}).
+        includeRaw {bool} -- Flag to include raw HTML (default: {False}).
     
     Returns:
         dict -- Dictionary of company infomation. See user guide for more info.
