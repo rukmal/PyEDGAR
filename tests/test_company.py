@@ -106,4 +106,37 @@ class TestEdgarCompany(unittest.TestCase):
                        for i in expected_former.keys()]
 
         # Check for equality
-        self.assertEqual(check_equal, [True, True])
+        self.assertTrue(all(check_equal))
+
+
+    def test_companyMetadata(self):
+        """Test the company metadata retrieval from `getInfo` in the
+        `company` module.
+
+        Test case uses ticker 'AMZN', with the corresponding CIK '0001018724'.
+        Verifies that the sic is '5961', sic_type is 'RETAIL-CATALOG &
+        MAIL-ORDER HOUSES', location is 'WA', incorporation_state is 'DE',
+        and fiscal_year_end is '12-31'.
+        """
+
+        # Test variables
+        test_cik = '0001018724'
+
+        # Getting company info
+        info = PyEDGAR.company.getInfo(cik=test_cik)
+
+        # Expected result
+        expected_metadata = {'sic': '5961',
+                             'sic_type': 'RETAIL-CATALOG & MAIL-ORDER HOUSES',
+                             'location': 'WA',
+                             'incorporation_state': 'DE',
+                             'fiscal_year_end': '12-31'}
+        # Candidate result
+        candidate_metadata = info['metadata']
+
+        # Checking equality
+        check_equal = [candidate_metadata[i] == expected_metadata[i]
+                        for i in expected_metadata.keys()]
+
+        # Check for equality
+        self.assertTrue(all(check_equal))
