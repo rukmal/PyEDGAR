@@ -3,6 +3,9 @@ from context import PyEDGAR
 import unittest
 
 class TestEdgarCompany(unittest.TestCase):
+    """Test the `company` module.
+    """
+
 
     def test_companyAddress(self):
         """Test company address retrieval from `getInfo` in the
